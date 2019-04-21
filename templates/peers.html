@@ -1,0 +1,11 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+        <h1>All Peers...</h1>
+        {% for b in peerlist %}
+        <h3>Peer: Address:{{b.address}}, Nonce:{{b.nonce}}, Pub_Key:{{b.public_key}}</h3>
+        {%endfor%}
+    </body>
+</html>

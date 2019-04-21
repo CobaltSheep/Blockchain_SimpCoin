@@ -1,0 +1,57 @@
+<html>
+    <head>
+        <style>
+            div {
+            white-space: -moz-pre-wrap !important;  /* Mozilla, since 1999 */
+            white-space: -pre-wrap;      /* Opera 4-6 */
+            white-space: -o-pre-wrap;    /* Opera 7 */
+            white-space: pre-wrap;       /* css-3 */
+            word-wrap: break-word;       /* Internet Explorer 5.5+ */
+            white-space: -webkit-pre-wrap; /* Newer versions of Chrome/Safari*/
+            word-break: break-all;
+            white-space: normal;
+            }
+
+            h1 {
+                font-size: 40px;
+            }
+
+            h2{
+                font-size: 30px;
+            }
+        </style>
+    </head>
+    <body>
+        
+        <h1>The Blockchain</h1>
+        {% for b in genesis %}
+        <h2>Block {{b.index}}</h2>
+        <h3>Block Data:</h3>
+        <div>Index: {{b.index}}</div>
+        <div>--------------------------</div>
+        <div>TimeStamp: {{b.timestamp}}</div>
+        <div>--------------------------</div>
+        <div>Previous Hash: {{b.prevHash}}</div>
+        <div>--------------------------</div>
+        <div>CurrentHash: {{b.currentHash}}</div>
+        <div>--------------------------</div>
+        <div>Nonce: {{b.Nonce}}</div>
+        <div>--------------------------</div>
+        <div>Merkle Root: {{b.merkle}}</div>
+        <h3>Transaction Data:</h3>
+        {% for a in b.data%}
+        <h4>Transaction {{loop.index-1}}</h4>
+        <div>Amount: {{a.addamt}}</div>
+        <div>--------------------------</div>
+        <div>Timestamp: {{a.timestamp}}</div>
+        <div>--------------------------</div>
+        <div>Current Hash: {{a.currentHash}}</div>
+        <div>--------------------------</div>
+        <div>Destination Id: {{a.destinationID}}</div>
+        <div>--------------------------</div>
+        <div>Sender Id: {{a.originatorID}}</div>
+        
+        {%endfor%}
+        {%endfor%}
+    </body>
+</html>
